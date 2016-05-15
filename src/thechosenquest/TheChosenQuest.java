@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package thechosenquest;
 
+import byui.cit260.theChosenQuest.model.BattleInterface;
+import byui.cit260.theChosenQuest.model.Creature;
 import byui.cit260.theChosenQuest.model.DungeonTypeScene;
 import byui.cit260.theChosenQuest.model.ForestTypeScene;
 import byui.cit260.theChosenQuest.model.Locations;
@@ -12,10 +9,13 @@ import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Player;
 import byui.cit260.theChosenQuest.model.Scene;
 import byui.cit260.theChosenQuest.model.TownTypeScene;
+import byui.cit260.theChosenQuest.model.Character;
+import byui.cit260.theChosenQuest.model.Item;
+import byui.cit260.theChosenQuest.model.Inventory;
 
 /**
  *
- * @author tharley GIT HUB TEST TRAVIS THIS IS SOME JUNK BABY
+ * @author tharley, rhein, ethompson
  */
 public class TheChosenQuest {
 
@@ -92,6 +92,37 @@ public class TheChosenQuest {
         String townInfo = town.toString();
         System.out.println(townInfo);
         
+                //creature code test
+    Creature creature = new Creature();
+    
+    creature.setCreatureName("Giant Roach");
+    
+    String creatureInfo = creature.toString();
+    System.out.println(creature);
+   
+   
+        //character code test
+    Character character = new Character();
+    
+    character.setName("Jebidiah");
+    character.setCharisma(3);
+    character.setConstitution(2);
+    character.setDexterity(1);
+    character.setEquippedArmor("Ancient Cuirass");
+    character.setEquippedWeapons("Aurials Bow");
+    character.setMagic(6);
+    character.setStrength(6);
+    character.setHitpoints(150);
+    
+    String characterInfo = character.toString();
+    System.out.println(character);
+    
+        //battle interface test
+    BattleInterface battleInterface = new BattleInterface();
+    
+    System.out.println("");
+        
     }
     
 }
+    
