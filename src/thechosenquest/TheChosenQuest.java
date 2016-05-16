@@ -12,6 +12,9 @@ import byui.cit260.theChosenQuest.model.TownTypeScene;
 import byui.cit260.theChosenQuest.model.Character;
 import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Inventory;
+import byui.cit260.theChosenQuest.model.Gold;
+import byui.cit260.theChosenQuest.model.Armor;
+import byui.cit260.theChosenQuest.model.Weapon;
 
 /**
  *
