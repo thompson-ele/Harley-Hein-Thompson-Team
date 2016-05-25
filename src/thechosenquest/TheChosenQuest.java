@@ -1,5 +1,6 @@
 package thechosenquest;
 
+// import models
 import byui.cit260.theChosenQuest.model.BattleInterface;
 import byui.cit260.theChosenQuest.model.Creature;
 import byui.cit260.theChosenQuest.model.DungeonTypeScene;
@@ -15,6 +16,9 @@ import byui.cit260.theChosenQuest.model.Inventory;
 import byui.cit260.theChosenQuest.model.Gold;
 import byui.cit260.theChosenQuest.model.Armor;
 import byui.cit260.theChosenQuest.model.Weapon;
+
+// import controls
+import byui.cit260.theChosenQuest.control.initializeMap;
 
 /**
  *
@@ -36,7 +40,7 @@ public class TheChosenQuest {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
         
-        // map test
+        //map test
         Map map= new Map();
         
         map.setRowCount(5.00);
@@ -95,35 +99,42 @@ public class TheChosenQuest {
         String townInfo = town.toString();
         System.out.println(townInfo);
         
-                //creature code test
-    Creature creature = new Creature();
-    
-    creature.setCreatureName("Giant Roach");
-    
-    String creatureInfo = creature.toString();
-    System.out.println(creature);
-   
-   
+        //creature code test
+        Creature creature = new Creature();
+
+        creature.setCreatureName("Giant Roach");
+
+        String creatureInfo = creature.toString();
+        System.out.println(creature);
+
         //character code test
-    Character character = new Character();
-    
-    character.setName("Jebidiah");
-    character.setCharisma(3);
-    character.setConstitution(2);
-    character.setDexterity(1);
-    character.setEquippedArmor("Ancient Cuirass");
-    character.setEquippedWeapons("Aurials Bow");
-    character.setMagic(6);
-    character.setStrength(6);
-    character.setHitpoints(150);
-    
-    String characterInfo = character.toString();
-    System.out.println(character);
-    
-        //battle interface test
-    BattleInterface battleInterface = new BattleInterface();
-    
-    System.out.println("");
+        Character character = new Character();
+
+        character.setName("Jebidiah");
+        character.setCharisma(3);
+        character.setConstitution(2);
+        character.setDexterity(1);
+        character.setEquippedArmor("Ancient Cuirass");
+        character.setEquippedWeapons("Aurials Bow");
+        character.setMagic(6);
+        character.setStrength(6);
+        character.setHitpoints(150);
+
+        String characterInfo = character.toString();
+        System.out.println(character);
+
+            //battle interface test
+        BattleInterface battleInterface = new BattleInterface();
+
+        System.out.println("");
+        
+        //test initilalizeMap
+        initializeMap initializeMap = new initializeMap();
+        
+        
+        
+        
+        
         
     }
     
