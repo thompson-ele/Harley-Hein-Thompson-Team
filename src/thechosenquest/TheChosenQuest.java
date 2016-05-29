@@ -18,7 +18,7 @@ import byui.cit260.theChosenQuest.model.Armor;
 import byui.cit260.theChosenQuest.model.Weapon;
 
 // import controls
-import byui.cit260.theChosenQuest.control.initializeMap;
+import byui.cit260.theChosenQuest.control.MapController;
 
 /**
  *
@@ -123,16 +123,13 @@ public class TheChosenQuest {
         String characterInfo = character.toString();
         System.out.println(character);
 
-            //battle interface test
+        //battle interface test
         BattleInterface battleInterface = new BattleInterface();
 
         System.out.println("");
         
-        //test initilalizeMap
-        initializeMap initializeMap = new initializeMap();
-        
-        
-        
+
+
         
         
         
