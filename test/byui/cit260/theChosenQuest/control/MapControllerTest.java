@@ -28,7 +28,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #1
          *******************************/
-        System.out.println("\tTest Case #1");
+        System.out.println("Test Case #1");
         
         int mapWidth = 5;
         int mapHeight = 5;
@@ -50,7 +50,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #2
          *******************************/
-        System.out.println("\tTest Case #2");
+        System.out.println("Test Case #2");
         
         int mapWidth = 4;
         int mapHeight = 3;
@@ -72,7 +72,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #3        
          *******************************/
-        System.out.println("\tTest Case #3");
+        System.out.println("Test Case #3");
         
         int mapWidth = -1;
         int mapHeight = 3;
@@ -94,7 +94,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #4        
          *******************************/
-        System.out.println("\tTest Case #4");
+        System.out.println("Test Case #4");
         
         int mapWidth = 4;
         int mapHeight = -1;
@@ -116,7 +116,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #5       
          *******************************/
-        System.out.println("\tTest Case #5");
+        System.out.println("Test Case #5");
         
         int mapWidth = -5;
         int mapHeight = 8;
@@ -138,7 +138,7 @@ public class MapControllerTest {
         /********************************
          * Test Case #6       
          *******************************/
-        System.out.println("\tTest Case #6");
+        System.out.println("Test Case #6");
         
         int mapWidth = 0;
         int mapHeight = 5;
@@ -160,7 +160,7 @@ public class MapControllerTest {
             /********************************
              * Test Case #7       
              *******************************/
-            System.out.println("\tTest Case #7");
+            System.out.println("Test Case #7");
 
             int mapWidth = 5;
             int mapHeight = 0;
