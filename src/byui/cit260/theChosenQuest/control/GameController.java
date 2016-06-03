@@ -5,11 +5,33 @@
  */
 package byui.cit260.theChosenQuest.control;
 
+import byui.cit260.theChosenQuest.model.Player;
+import thechosenquest.TheChosenQuest;
+
 /**
  *
  * @author Travis Harley
  */
 public class GameController {
+
+    public static Player createPlayer(String name) {
+        
+        if(name == null){
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(name);
+        
+        TheChosenQuest.setPlayer(player); //save the player
+        
+        return player;
+        
+    }
+
+    public static void createNewGame(Player player) {
+        System.out.println("\n createNewGame function called");
+    }
     
     public int createGame(int numberOfGames){
         
