@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,10 +16,6 @@ public class Character implements Serializable{
     //attributes
     private String name;
     private double strength;
-    private double dexterity;
-    private double constitution;
-    private double magic;
-    private double charisma;
     private double hitpoints;
     private String equippedArmor;
     private String equippedWeapons;
@@ -42,38 +39,6 @@ public class Character implements Serializable{
 
     public void setStrength(double strength) {
         this.strength = strength;
-    }
-
-    public double getDexterity() {
-        return dexterity;
-    }
-
-    public void setDexterity(double dexterity) {
-        this.dexterity = dexterity;
-    }
-
-    public double getConstitution() {
-        return constitution;
-    }
-
-    public void setConstitution(double constitution) {
-        this.constitution = constitution;
-    }
-
-    public double getMagic() {
-        return magic;
-    }
-
-    public void setMagic(double magic) {
-        this.magic = magic;
-    }
-
-    public double getCharisma() {
-        return charisma;
-    }
-
-    public void setCharisma(double charisma) {
-        this.charisma = charisma;
     }
 
     public double getHitpoints() {
@@ -107,10 +72,6 @@ public class Character implements Serializable{
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.name);
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.dexterity) ^ (Double.doubleToLongBits(this.dexterity) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.constitution) ^ (Double.doubleToLongBits(this.constitution) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.magic) ^ (Double.doubleToLongBits(this.magic) >>> 32));
-        hash = 29 * hash + (int) (Double.doubleToLongBits(this.charisma) ^ (Double.doubleToLongBits(this.charisma) >>> 32));
         hash = 29 * hash + (int) (Double.doubleToLongBits(this.hitpoints) ^ (Double.doubleToLongBits(this.hitpoints) >>> 32));
         hash = 29 * hash + Objects.hashCode(this.equippedArmor);
         hash = 29 * hash + Objects.hashCode(this.equippedWeapons);
@@ -132,18 +93,6 @@ public class Character implements Serializable{
         if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
             return false;
         }
-        if (Double.doubleToLongBits(this.dexterity) != Double.doubleToLongBits(other.dexterity)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.constitution) != Double.doubleToLongBits(other.constitution)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.magic) != Double.doubleToLongBits(other.magic)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.charisma) != Double.doubleToLongBits(other.charisma)) {
-            return false;
-        }
         if (Double.doubleToLongBits(this.hitpoints) != Double.doubleToLongBits(other.hitpoints)) {
             return false;
         }
@@ -159,7 +108,7 @@ public class Character implements Serializable{
     //to string function
     @Override
     public String toString() {
-        return "Character{" + "name=" + name + ", strength=" + strength + ", dexterity=" + dexterity + ", constitution=" + constitution + ", magic=" + magic + ", charisma=" + charisma + ", hitpoints=" + hitpoints + ", equippedArmor=" + equippedArmor + ", equippedWeapons=" + equippedWeapons + '}';
+        return "Character{" + "name=" + name + ", strength=" + strength + ", hitpoints=" + hitpoints + ", equippedArmor=" + equippedArmor + ", equippedWeapons=" + equippedWeapons + '}';
     }
        
     
