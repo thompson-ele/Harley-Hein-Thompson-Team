@@ -32,7 +32,7 @@ class MainMenuView {
         
         boolean done = false; 
         do {
-            //promot for and get players name
+            //promote for and get players name
             String menuOption = this.getMenuOption();
             if(menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return;
@@ -90,9 +90,13 @@ class MainMenuView {
         
         GameController.createNewGame(TheChosenQuest.getPlayer());
         
+        // Display CreateCharacterView
+        CreateCharacterView createNewCharacter = new CreateCharacterView();
+        createNewCharacter.displayCreateCharacterView();
+        
         //display the game menu
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        //GameMenuView gameMenu = new GameMenuView();
+        //gameMenu.displayMenu();
     }
 
     private void loadGame() {
