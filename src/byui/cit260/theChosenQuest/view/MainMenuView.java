@@ -17,11 +17,10 @@ class MainMenuView {
 
     private String menu;
 
-    
     public MainMenuView(){
-        this.menu = "\n"
-                   + "\n-------------------------"
-                   + "\n Main Menu |"
+        this.menu =  "\n"
+                   + "\n--------------"
+                   + "\nMain Menu |"
                    + "\nN - New Game"
                    + "\nL - Load Game"
                    + "\nQ - Quit";
@@ -32,7 +31,7 @@ class MainMenuView {
         
         boolean done = false; 
         do {
-            //promote for and get players name
+            //promot for and get players name
             String menuOption = this.getMenuOption();
             if(menuOption.toUpperCase().equals("Q")) // user wants to quit
                 return;
@@ -90,23 +89,17 @@ class MainMenuView {
         
         GameController.createNewGame(TheChosenQuest.getPlayer());
         
-        // Display CreateCharacterView
-        CreateCharacterView createNewCharacter = new CreateCharacterView();
-        createNewCharacter.displayCreateCharacterView();
-        
         //display the game menu
-        //GameMenuView gameMenu = new GameMenuView();
-        //gameMenu.displayMenu();
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView();
+        
     }
 
     private void loadGame() {
-        
-        System.out.println("\n Your game loaded AKA it's calling the function");
+        System.out.println("\n Your game loaded and it's calling the function");
     }
 
     private void exitGame() {
         System.out.println("\n Good news, you just quit your game. Hope you saved it. It's just calling the function");
     }
- 
-
 }

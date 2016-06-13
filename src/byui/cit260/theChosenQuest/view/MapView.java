@@ -9,24 +9,24 @@ import java.util.Scanner;
 
 /**
  *
- * @author Travis Harley
+ * @author Riley Hein
  */
-public class GetHelpView {
+public class MapView {
     
     private String menu;
     
-    public GetHelpView(){
+    public MapView(){
         this.menu = "\n"
-                    + "\n---------------------"
-                    + "\nHelp Menu |"
-                    + "\nG - What is the goal of the game?"
-                    + "\nM - How to move"
-                    + "\nQ - Quit Menu"
-                    + "\n---------------------";
+                + "\n------------------"
+                + "\nMap |"
+                + "\nF- Forward"
+                + "\nL - Left"
+                + "\nR - Right"
+                + "\nB - Back"
+                + "\nQ - Quit";
     }
     
-    public void displayGetHelpMenuView() {
-        
+    public void displayMapView(){
         boolean done = false; 
         do {
             //promot for and get players name
@@ -38,26 +38,33 @@ public class GetHelpView {
             done = this.doAction(menuOption);
             
         } while (!done);
-    } 
+    }
     
     public boolean doAction(String choice){
     
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch(choice){
-            case "G": // create a new game
-                this.gameGoal();
+            case "F": // create a new game
+                this.moveForward();
                 break;
-            case "M": // load the game
-                this.gameControls();
+            case "L": // load the game
+                this.moveLeft();
+                break;
+            case "R": // load the game
+                this.moveRight();
+                break;
+            case "B": // load the game
+                this.moveBack();
                 break;
             case "Q": // quit it 
-                this.exitGame();
+                this.exitMap();
                 break;
             default:
                 System.out.println("\n****** Invalid selection *** TRY AGAIN!!!");
                 break;
         }
+        
         return false;
     }
     
@@ -82,16 +89,25 @@ public class GetHelpView {
         return value; // reutnr hte value entered
     }
 
-    private void gameGoal() {
-        System.out.println("\n gamegoal function called");
+    private void moveForward() {
+        System.out.println("\nMove forward");
     }
 
-    private void gameControls() {
-        System.out.println("\n gameControls function called");
+    private void moveLeft() {
+        System.out.println("\nMove Left");
     }
 
-    private void exitGame() {
-        System.out.println("\n exitGame function called");
+    private void moveRight() {
+        System.out.println("\nMove Right");
     }
+
+    private void moveBack() {
+        System.out.println("\nMove Back");
+    }
+
+    private void exitMap() {
+        System.out.println("\nExit map");
+    }
+    
     
 }

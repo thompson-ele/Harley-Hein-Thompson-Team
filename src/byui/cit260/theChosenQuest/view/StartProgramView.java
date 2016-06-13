@@ -30,8 +30,8 @@ public class StartProgramView {
         
         System.out.println(
                 "\n"
-                +"Welcome to the game you turds. Don't die, or it's game over."
-                +"In this game you will fight the biggest bosses in the world."
+                +"\nWelcome to the game you turds. Don't die, or it's game over."
+                +"\nIn this game you will fight the biggest bosses in the world."
         );
     }
 
@@ -74,7 +74,7 @@ public class StartProgramView {
         
         if(playersName.length() < 2){
             System.out.println("\nInvalid players name:"
-                    + "The name must be greater than one character in length");
+                    + "\nThe name must be greater than one character in length");
             return false;
         }
         

@@ -5,7 +5,6 @@ import byui.cit260.theChosenQuest.model.Game;
 import byui.cit260.theChosenQuest.view.StartProgramView;
 import byui.cit260.theChosenQuest.model.Player;
 import byui.cit260.theChosenQuest.view.GetHelpView;
-import byui.cit260.theChosenQuest.model.Character;
 
 /**
  *
@@ -15,15 +14,6 @@ public class TheChosenQuest {
 
    private static Game currentGame = null;
    private static Player player = null;
-   private static Character hero = null;
-
-    public static Character getHero() {
-        return hero;
-    }
-
-    public static void setHero(Character hero) {
-        TheChosenQuest.hero = hero;
-    }
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -51,6 +41,7 @@ public class TheChosenQuest {
         
         GetHelpView getHelpView = new GetHelpView();
         getHelpView.displayGetHelpMenuView();
+        
         
     }
     

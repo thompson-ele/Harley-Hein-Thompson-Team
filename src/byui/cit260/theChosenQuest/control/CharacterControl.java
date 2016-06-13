@@ -5,9 +5,7 @@
  */
 package byui.cit260.theChosenQuest.control;
 
-import byui.cit260.theChosenQuest.model.Character;
 import java.util.Random;
-import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -21,21 +19,6 @@ public class CharacterControl {
         
         roll = rand.nextInt(sides) + 1;
         return roll;
-    }
-    
-    public static Character createCharacter(String name) {
-        
-        if(name == null){
-            return null;
-        }
-        
-        Character character = new Character();
-        character.setName(name);
-        
-        TheChosenQuest.setHero(character); //save the character
-        
-        return character;
-        
     }
     
     // Calculates characters initial stats

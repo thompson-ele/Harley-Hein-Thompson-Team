@@ -9,24 +9,22 @@ import java.util.Scanner;
 
 /**
  *
- * @author Travis Harley
+ * @author Riley Hein
  */
-public class GetHelpView {
+public class FightScreen {
     
     private String menu;
     
-    public GetHelpView(){
+    public FightScreen(){
         this.menu = "\n"
-                    + "\n---------------------"
-                    + "\nHelp Menu |"
-                    + "\nG - What is the goal of the game?"
-                    + "\nM - How to move"
-                    + "\nQ - Quit Menu"
-                    + "\n---------------------";
+                + "\n---------------"
+                + "\nFight Options |"
+                + "\nA - Attack"
+                + "\nD - Defend"
+                + "\nR - Run";
     }
     
-    public void displayGetHelpMenuView() {
-        
+    public void displayFightScreen(){
         boolean done = false; 
         do {
             //promot for and get players name
@@ -38,26 +36,27 @@ public class GetHelpView {
             done = this.doAction(menuOption);
             
         } while (!done);
-    } 
+    }
     
     public boolean doAction(String choice){
     
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch(choice){
-            case "G": // create a new game
-                this.gameGoal();
+            case "A": // create a new game
+                this.attack();
                 break;
-            case "M": // load the game
-                this.gameControls();
+            case "D": // load the game
+                this.defend();
                 break;
-            case "Q": // quit it 
-                this.exitGame();
+            case "R": // load the game
+                this.runFight();
                 break;
             default:
                 System.out.println("\n****** Invalid selection *** TRY AGAIN!!!");
                 break;
         }
+        
         return false;
     }
     
@@ -82,16 +81,17 @@ public class GetHelpView {
         return value; // reutnr hte value entered
     }
 
-    private void gameGoal() {
-        System.out.println("\n gamegoal function called");
+    private void attack() {
+        System.out.println("\nCalling attack function");
     }
 
-    private void gameControls() {
-        System.out.println("\n gameControls function called");
+    private void defend() {
+        System.out.println("\nCalling run function");
     }
 
-    private void exitGame() {
-        System.out.println("\n exitGame function called");
+    private void runFight() {
+        System.out.println("\nCalling run function");
     }
+    
     
 }

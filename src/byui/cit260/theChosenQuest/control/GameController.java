@@ -6,6 +6,7 @@
 package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.model.Player;
+import byui.cit260.theChosenQuest.view.GameMenuView;
 import thechosenquest.TheChosenQuest;
 
 /**
@@ -30,7 +31,8 @@ public class GameController {
     }
 
     public static void createNewGame(Player player) {
-        System.out.println("\n createNewGame function called");
+        GameMenuView gameMenuView = new GameMenuView();
+        gameMenuView.displayGameMenuView();
     }
     
     public int createGame(int numberOfGames){
