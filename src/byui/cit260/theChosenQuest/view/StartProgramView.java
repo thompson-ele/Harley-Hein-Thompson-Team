@@ -93,10 +93,10 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        System.out.println("\n--------------------------------"
+        System.out.println("n-----------------------------------"
                             + "\nWelcome to the game "+player.getName()
                             + "\nWe hope you have a lot of fun!"
-                            + "\n---------------------------- "
+                            + "n-----------------------------------"
         );
         
         //create mainMenuView object
