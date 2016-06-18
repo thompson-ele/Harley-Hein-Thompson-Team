@@ -11,34 +11,18 @@ import java.util.Scanner;
  *
  * @author Travis Harley
  */
-public class GetHelpView {
-    
-    private String menu;
-    
+public class GetHelpView extends View{
+
     public GetHelpView(){
-        this.menu = "\n"
-                    + "\n---------------------"
-                    + "\nHelp Menu |"
-                    + "\nG - What is the goal of the game?"
-                    + "\nM - How to move"
-                    + "\nQ - Quit Menu"
-                    + "\n---------------------";
+        super( "\n"
+            + "\n-----------------------------------"
+            + "\n| Help Menu                        |"
+            + "\n-----------------------------------"
+            + "\nG - What is the goal of the game?"
+            + "\nM - How to move"
+            + "\nQ - Quit Menu"
+            + "\n-----------------------------------");
     }
-    
-    public void displayGetHelpMenuView() {
-        
-        boolean done = false; 
-        do {
-            //promot for and get players name
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return;
-            
-            // do the requested action and display the new view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    } 
     
     public boolean doAction(String choice){
     
@@ -59,27 +43,6 @@ public class GetHelpView {
                 break;
         }
         return false;
-    }
-    
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keybaord
-        String value = ""; // value to be returned
-        boolean valid = false;
-        
-        while(!valid){
-            System.out.println("\n"+this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if(value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop pls
-        }
-        return value; // reutnr hte value entered
     }
 
     private void gameGoal() {

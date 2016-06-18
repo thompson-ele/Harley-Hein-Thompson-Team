@@ -32,7 +32,7 @@ public class GameController {
 
     public static void createNewGame(Player player) {
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
     }
     
     public int createGame(int numberOfGames){

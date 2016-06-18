@@ -6,40 +6,24 @@
 package byui.cit260.theChosenQuest.view;
 
 import byui.cit260.theChosenQuest.control.GameController;
-import java.util.Scanner;
 import thechosenquest.TheChosenQuest;
 
 /**
  *
  * @author Travis Harley
  */
-class MainMenuView {
-
-    private String menu;
+public class MainMenuView extends View {
 
     public MainMenuView(){
-        this.menu =  "\n"
-                   + "\n--------------"
-                   + "\nMain Menu |"
-                   + "\nN - New Game"
-                   + "\nL - Load Game"
-                   + "\nQ - Quit";
+        super(    "\n"
+                + "\n-----------------------------------"
+                + "\n| Main Menu                       |"
+                + "\n-----------------------------------"
+                + "\nN - New Game"
+                + "\nL - Load Game"
+                + "\nQ - Quit"
+                + "\n-----------------------------------");
         
-    }
-    
-    void displayMainMenuView() {
-        
-        boolean done = false; 
-        do {
-            //promot for and get players name
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return;
-            
-            // do the requested action and display the new view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
     }
     
     public boolean doAction(String choice){
@@ -64,34 +48,13 @@ class MainMenuView {
         return false;
     }
 
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keybaord
-        String value = ""; // value to be returned
-        boolean valid = false;
-        
-        while(!valid){
-            System.out.println("\n"+this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if(value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop pls
-        }
-        return value; // reutnr hte value entered
-    }
-
     private void startNewGame() {
         
         GameController.createNewGame(TheChosenQuest.getPlayer());
         
         //display the game menu
         GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
+        gameMenuView.display();
         
     }
 

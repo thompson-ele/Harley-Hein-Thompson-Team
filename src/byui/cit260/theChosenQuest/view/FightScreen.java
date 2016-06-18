@@ -11,33 +11,19 @@ import java.util.Scanner;
  *
  * @author Riley Hein
  */
-public class FightScreen {
-    
-    private String menu;
+public class FightScreen extends View {
     
     public FightScreen(){
-        this.menu = "\n"
-                + "\n---------------"
-                + "\nFight Options |"
+        super("\n"
+                + "\n-----------------------------------"
+                + "\n| Fight Options                   |"
+                + "\n-----------------------------------"
                 + "\nA - Attack"
                 + "\nD - Defend"
-                + "\nR - Run";
+                + "\nR - Run"
+                + "\n-----------------------------------");
     }
-    
-    public void displayFightScreen(){
-        boolean done = false; 
-        do {
-            //promot for and get players name
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return;
-            
-            // do the requested action and display the new view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
-    
+     
     public boolean doAction(String choice){
     
         choice = choice.toUpperCase(); // convert choice to upper case
@@ -58,27 +44,6 @@ public class FightScreen {
         }
         
         return false;
-    }
-    
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keybaord
-        String value = ""; // value to be returned
-        boolean valid = false;
-        
-        while(!valid){
-            System.out.println("\n"+this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if(value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop pls
-        }
-        return value; // reutnr hte value entered
     }
 
     private void attack() {

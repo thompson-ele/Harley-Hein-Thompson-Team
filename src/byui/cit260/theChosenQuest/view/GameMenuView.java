@@ -11,37 +11,23 @@ import java.util.Scanner;
  *
  * @author Travis Harley
  */
-public class GameMenuView {
-
-   private String menu;
+public class GameMenuView extends View {
     
     public GameMenuView() {
-        this.menu =   "\n"
-                    + "\n-------------------"
-                    + "\nGame Menu |"
-                    + "\nM - Map"
-                    + "\nI - Inventory"
-                    + "\nC - Character Sheet"
-                    + "\nH - Help Menu"
-                    + "\nF - Fight Screen"
-                    + "\nS - Save Game"
-                    + "\nQ - Quit Game";
+        super( "\n"
+            + "\n-----------------------------------"
+            + "\n| Game Menu                       |"
+            + "\n-----------------------------------"
+            + "\nM - Map"
+            + "\nI - Inventory"
+            + "\nC - Character Sheet"
+            + "\nH - Help Menu"
+            + "\nF - Fight Screen"
+            + "\nS - Save Game"
+            + "\nQ - Quit Game"
+            + "\n-----------------------------------");
     }
 
-    public void displayGameMenuView() {
-        boolean done = false; 
-        do {
-            //promot for and get players name
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) // user wants to quit
-                return;
-            
-            // do the requested action and display the new view
-            done = this.doAction(menuOption);
-            
-        } while (!done);
-    }
-    
     public boolean doAction(String choice){
     
         choice = choice.toUpperCase(); // convert choice to upper case
@@ -75,27 +61,6 @@ public class GameMenuView {
         
         return false;
     }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keybaord
-        String value = ""; // value to be returned
-        boolean valid = false;
-        
-        while(!valid){
-            System.out.println("\n"+this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trailing blanks
-            
-            if(value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break; // end the loop pls
-        }
-        return value; // reutnr hte value entered
-    }
     
     private void displayMap() {
         // display the map
@@ -127,13 +92,13 @@ public class GameMenuView {
         
         //display map menu
         MapView mapView = new MapView();
-        mapView.displayMapView();
+        mapView.display();
     }
 
     private void inventoryMenu() {
         //display the invnetory menu
         InventoryView inventoryView = new InventoryView();
-        inventoryView.displayInventoryView();
+        inventoryView.display();
     }
 
     private void displayCharacterSheet() {
@@ -143,7 +108,7 @@ public class GameMenuView {
     private void helpMenu() {
         //call the help menu
         GetHelpView getHelpView = new GetHelpView();
-        getHelpView.displayGetHelpMenuView();
+        getHelpView.display();
     }
 
     private void saveGame() {
@@ -157,7 +122,7 @@ public class GameMenuView {
     private void fightScreen() {
         //display fight sreen
         FightScreen fightScreen = new FightScreen();
-        fightScreen.displayFightScreen();
+        fightScreen.display();
     }
    
 }

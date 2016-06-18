@@ -11,37 +11,22 @@ import java.util.Scanner;
  *
  * @author Travis Harley
  */
-class InventoryView {
-    
-    private String menu; 
+class InventoryView extends View{
     
     public InventoryView(){
-        this.menu= "\n"
-                + "\n---------------"
-                + "\nInventory Menu |"
-                + "\nW - Weapons"
-                + "\nA - Armor"
-                + "\nO - Other Items"
-                + "\nG - Gold"
-                + "\nQ = Quit";
+        super("\n"
+            + "\n-----------------------------------"
+            + "\n| Inventory Menu                  |"
+            + "\n-----------------------------------"
+            + "\nW - Weapons"
+            + "\nA - Armor"
+            + "\nO - Other Items"
+            + "\nG - Gold"
+            + "\nQ = Quit"
+            + "\n-----------------------------------");
     }
     
-    void displayInventoryView(){
-        
-        boolean done = false;
-        do{
-            //prompt for and get the players name
-            String menuOption = this.getMenuOption();
-            if(menuOption.toUpperCase().equals("Q")) 
-                return;
-            
-            //do the requested action then display the new view
-            done = this.doAction(menuOption);
-       
-        } while (!done);
-    }
-    
-    private boolean doAction(String choice) {
+    public boolean doAction(String choice) {
         choice = choice.toUpperCase();// convert choice to upper case
         
         switch(choice){
@@ -66,27 +51,6 @@ class InventoryView {
         }
         
         return false;
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
-        String value = ""; // value returned
-        boolean valid = false;
-        
-        while(!valid){
-            System.out.println("\n"+this.menu);
-            
-            value = keyboard.nextLine(); // get next line typed on keyboard
-            value = value.trim(); // trim off leading and trialing blanks
-            
-            if(value.length() < 1){
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            
-            break;
-        }
-        return value; // return the value entereds
     }
 
     private void displayWeapons() {

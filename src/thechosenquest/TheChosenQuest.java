@@ -40,7 +40,7 @@ public class TheChosenQuest {
         startProgramView.displayStartProgramView();
         
         GetHelpView getHelpView = new GetHelpView();
-        getHelpView.displayGetHelpMenuView();
+        getHelpView.display();
         
         
     }
