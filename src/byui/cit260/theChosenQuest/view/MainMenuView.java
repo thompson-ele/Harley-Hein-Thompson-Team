@@ -6,6 +6,9 @@
 package byui.cit260.theChosenQuest.view;
 
 import byui.cit260.theChosenQuest.control.GameController;
+import byui.cit260.theChosenQuest.exception.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thechosenquest.TheChosenQuest;
 
 /**
@@ -48,9 +51,15 @@ public class MainMenuView extends View {
         return false;
     }
 
+    
+    // NEED TO CHANGE THE EXCEPTION FOR THIS METHOD
     private void startNewGame() {
-        
-        GameController.createNewGame(TheChosenQuest.getPlayer());
+        try {
+            // create a new game
+            GameController.createNewGame(TheChosenQuest.getPlayer());
+        } catch (MapControlException ex) {
+            Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         //display the game menu
         GameMenuView gameMenuView = new GameMenuView();

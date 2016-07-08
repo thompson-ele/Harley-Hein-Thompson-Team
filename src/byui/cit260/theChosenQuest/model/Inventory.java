@@ -15,39 +15,54 @@ import java.util.Objects;
 public class Inventory implements Serializable {
     
     // class instance variables
-    private String itemName;
-    private int quantity;
+    private String description;
+    private String inventoryType;
+    private int quantityInStock;
+    private int requiredAmount;
 
     public Inventory() {
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
-    public String getItemName() {
-        return itemName;
+    public String getInventoryType() {
+        return inventoryType;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
+    public void setInventoryType(String inventoryType) {
+        this.inventoryType = inventoryType;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getQuantityInStock() {
+        return quantityInStock;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public int getRequiredAmount() {
+        return requiredAmount;
+    }
+
+    public void setRequiredAmount(int requiredAmount) {
+        this.requiredAmount = requiredAmount;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.itemName);
-        hash = 41 * hash + this.quantity;
+        hash = 59 * hash + Objects.hashCode(this.description);
+        hash = 59 * hash + Objects.hashCode(this.inventoryType);
+        hash = 59 * hash + this.quantityInStock;
+        hash = 59 * hash + this.requiredAmount;
         return hash;
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" + "itemName=" + itemName + ", quantity=" + quantity + '}';
     }
 
     @Override
@@ -62,13 +77,24 @@ public class Inventory implements Serializable {
             return false;
         }
         final Inventory other = (Inventory) obj;
-        if (this.quantity != other.quantity) {
+        if (this.quantityInStock != other.quantityInStock) {
             return false;
         }
-        if (!Objects.equals(this.itemName, other.itemName)) {
+        if (this.requiredAmount != other.requiredAmount) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" + "description=" + description + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
     }
     
 }

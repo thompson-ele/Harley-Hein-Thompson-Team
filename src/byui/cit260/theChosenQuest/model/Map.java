@@ -15,14 +15,49 @@ import java.util.Objects;
 public class Map implements Serializable {
     
     
-    // varrables 
+    // variables 
     private double rowCount;
     private double columnCount;
     private String locationsVisited; 
+    private Locations[][] locations;
+    private String description;
 
     // constructor
     public Map() {
+        this.description = "\nThis is the map, know it well";
+        this.rowCount = 0;
+        this.columnCount = 0;
     }
+    
+    public Map(int rowCount, int columnCount){
+        
+        if(rowCount < 1 || columnCount < 1){
+            System.out.println("The number of rows columns must be > 0");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        //create 2d array for location objects
+        this.locations = new Locations[rowCount][columnCount];
+        
+        for(int row = 0; row < rowCount; row++){
+            for(int column = 0; column < columnCount; column++){
+            
+                //create and initialize new location object instance
+                Locations location = new Locations();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(false);
+                
+                //assign the location object to the current position in array
+                locations[row][column] = location;
+            }
+        
+        }
+    }
+ 
     
     // getter setters
     public double getRowCount() {
@@ -84,6 +119,10 @@ public class Map implements Serializable {
             return false;
         }
         return true;
+    }
+
+    Locations[][] getLocations() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

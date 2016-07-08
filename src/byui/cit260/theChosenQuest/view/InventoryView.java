@@ -5,7 +5,10 @@
  */
 package byui.cit260.theChosenQuest.view;
 
+import byui.cit260.theChosenQuest.model.Game;
+import byui.cit260.theChosenQuest.model.Inventory;
 import java.util.Scanner;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -24,6 +27,32 @@ class InventoryView extends View{
             + "\nG - Gold"
             + "\nQ = Quit"
             + "\n-----------------------------------");
+    }
+    
+    
+    private void viewInventory(){
+        StringBuilder line;
+        Game game = TheChosenQuest.getCurrentGame();
+        Inventory[] inventory = game.getInventory();
+        
+        System.out.println("\n    LIST OF INNVENTORY ITEMS");
+        line = new StringBuilder("                  ");
+        line.insert(0, "DESCRIPTION");
+        line.insert(20, "REQUIRED");
+        line.insert(30, "IN STOCK");
+        System.out.println(line.toString());
+        
+        // for each inventory item
+        for (Inventory item : inventory) {
+            line = new StringBuilder("               ");
+            line.insert(0, item.getDescription());
+            line.insert(23, item.getRequiredAmount());
+            line.insert(33, item.getQuantityInStock());
+            
+            //DISPLAY the line
+            System.out.println(line.toString());
+        }
+        
     }
     
     public boolean doAction(String choice) {

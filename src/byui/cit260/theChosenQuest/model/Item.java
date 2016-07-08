@@ -12,6 +12,12 @@ import java.util.Objects;
  *
  * @author ethompson
  */
+
+/*public enum Item { // List of all available items in game
+    weapons,
+    gold;
+}*/
+
 public class Item implements Serializable {
     
     // class instance variables
