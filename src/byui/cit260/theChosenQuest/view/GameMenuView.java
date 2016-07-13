@@ -6,6 +6,7 @@
 package byui.cit260.theChosenQuest.view;
 
 import java.util.Scanner;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -64,33 +65,8 @@ public class GameMenuView extends View {
     
     private void displayMap() {
         // display the map
-        System.out.println("MAP OF THE LAND\n" 
-               + "\n"
-               + "            A       B       C       D       E\n"
-               + "        -----------------------------------------\n"
-               + "        |       |       |       |       |       |\n"
-               + "    1   |   1   |   2   |   3   |   4   |   5   |\n"
-               + "        |       |       |       |       |       |\n"
-               + "        -----------------------------------------\n"
-               + "        |       |       |       |       |       |\n"
-               + "    2   |   6   |   7   |   8   |   9   |   10  |\n"
-               + "        |       |       |       |       |       |\n"
-               + "        -----------------------------------------\n"
-               + "        |       |       |       |       |       |\n"
-               + "    3   |   11  |   12  |   13  |   14  |   15  |\n"
-               + "        |       |       |       |       |       |\n"
-               + "        -----------------------------------------\n"
-               + "        |       |       |       |       |       |\n"
-               + "    4   |   16  |   17  |   18  |   19  |   20  |\n"
-               + "        |       |       |       |       |       |\n"
-               + "        -----------------------------------------\n"
-               + "        |       |       |       |       |       |\n"
-               + "    5   |   21  |   22  |   23  |   24  |   25  |\n"
-               + "        |       |       |       |       |       |\n"
-               + "        -----------------------------------------\n"
-       );
+        System.out.println(TheChosenQuest.getCurrentGame().getMap().getMapString());
         
-        //display map menu
         MapView mapView = new MapView();
         mapView.display();
     }

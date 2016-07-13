@@ -13,13 +13,12 @@ import java.util.Objects;
  * @author Travis Harley
  */
 public class Map implements Serializable {
-    
-    
+
     // variables 
     private double rowCount;
     private double columnCount;
-    private String locationsVisited; 
-    private Locations[][] locations;
+    private String locationsVisited;
+    private Location[][] locations;
     private String description;
 
     // constructor
@@ -28,36 +27,53 @@ public class Map implements Serializable {
         this.rowCount = 0;
         this.columnCount = 0;
     }
-    
-    public Map(int rowCount, int columnCount){
-        
-        if(rowCount < 1 || columnCount < 1){
+
+    public Map(int rowCount, int columnCount) {
+
+        if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of rows columns must be > 0");
             return;
         }
-        
+
         this.rowCount = rowCount;
         this.columnCount = columnCount;
-        
+
         //create 2d array for location objects
-        this.locations = new Locations[rowCount][columnCount];
-        
-        for(int row = 0; row < rowCount; row++){
-            for(int column = 0; column < columnCount; column++){
-            
+        this.locations = new Location[rowCount][columnCount];
+
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < columnCount; column++) {
+
                 //create and initialize new location object instance
-                Locations location = new Locations();
+                Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
+
                 //assign the location object to the current position in array
                 locations[row][column] = location;
             }
-        
+
         }
     }
- 
+    
+    public Location getLocation(int row, int col) {
+        return locations[row][col];
+    }
+    
+    public String getMapString() {
+        
+        String rtn = "";
+        
+        for (int row = 0; row < rowCount; row++) {
+            rtn += "\n";
+            for (int column = 0; column < columnCount; column++) {
+                rtn += locations[row][column].getVisited() ? "V\t" : "X\t" ;
+            }
+        }
+     
+        return rtn;
+    }
     
     // getter setters
     public double getRowCount() {
@@ -83,7 +99,7 @@ public class Map implements Serializable {
     public void setLocationsVisited(String locationsVisited) {
         this.locationsVisited = locationsVisited;
     }
-    
+
     // eqauals hashcode
     @Override
     public int hashCode() {
@@ -99,7 +115,7 @@ public class Map implements Serializable {
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", columnCount=" + columnCount + ", locationsVisited=" + locationsVisited + '}';
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -121,11 +137,8 @@ public class Map implements Serializable {
         return true;
     }
 
-    Locations[][] getLocations() {
+    Location[][] getLocations() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
-    
+
 }

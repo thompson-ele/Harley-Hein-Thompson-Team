@@ -17,6 +17,7 @@ public class Player implements Serializable {
     private String name;
     private String playerClass;
     private String race;
+    private Location location;
     
     // constructor
     public Player() {
@@ -45,6 +46,15 @@ public class Player implements Serializable {
 
     public void setRace(String race) {
         this.race = race;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+        location.setVisited(true);
     }
     
     // equals and hashcode

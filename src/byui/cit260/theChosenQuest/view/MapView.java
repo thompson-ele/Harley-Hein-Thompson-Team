@@ -5,7 +5,9 @@
  */
 package byui.cit260.theChosenQuest.view;
 
+import byui.cit260.theChosenQuest.control.MovementController;
 import java.util.Scanner;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -18,10 +20,10 @@ public class MapView extends View{
             + "\n-----------------------------------"
             + "\n| Map                             |"
             + "\n-----------------------------------"
-            + "\nF- Forward"
-            + "\nL - Left"
-            + "\nR - Right"
-            + "\nB - Back"
+            + "\nN - North"
+            + "\nE - East"
+            + "\nS - South"
+            + "\nW - West"
             + "\nQ - Quit"
             + "\n-----------------------------------");
     }
@@ -31,17 +33,17 @@ public class MapView extends View{
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch(choice){
-            case "F": // create a new game
-                this.moveForward();
+            case "N": // create a new game
+                this.moveNorth();
                 break;
-            case "L": // load the game
-                this.moveLeft();
+            case "E": // load the game
+                this.moveEast();
                 break;
-            case "R": // load the game
-                this.moveRight();
+            case "S": // load the game
+                this.moveSouth();
                 break;
-            case "B": // load the game
-                this.moveBack();
+            case "W": // load the game
+                this.moveWest();
                 break;
             case "Q": // quit it 
                 this.exitMap();
@@ -53,21 +55,25 @@ public class MapView extends View{
         
         return false;
     }
-
-    private void moveForward() {
-        System.out.println("\nMove forward");
+    
+    private void moveNorth() {
+        MovementController mc = new MovementController();
+        mc.moveNorth(TheChosenQuest.getCurrentGame());
     }
-
-    private void moveLeft() {
-        System.out.println("\nMove Left");
+    
+    private void moveEast() {
+        MovementController mc = new MovementController();
+        mc.moveEast(TheChosenQuest.getCurrentGame());
     }
-
-    private void moveRight() {
-        System.out.println("\nMove Right");
+    
+    private void moveSouth() {
+        MovementController mc = new MovementController();
+        mc.moveSouth(TheChosenQuest.getCurrentGame());
     }
-
-    private void moveBack() {
-        System.out.println("\nMove Back");
+    
+    private void moveWest() {
+        MovementController mc = new MovementController();
+        mc.moveWest(TheChosenQuest.getCurrentGame());
     }
 
     private void exitMap() {

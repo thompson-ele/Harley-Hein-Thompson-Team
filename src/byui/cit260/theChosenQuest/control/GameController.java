@@ -49,11 +49,7 @@ public class GameController {
         Map map = MapController.createMap(); // create and initialize new map
         game.setMap(map);
         
-        //move actors to starting position in the map
-        MapController.moveActorsToStartingLocation(map);
-                
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        player.setLocation(map.getLocation(0, 0));
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {

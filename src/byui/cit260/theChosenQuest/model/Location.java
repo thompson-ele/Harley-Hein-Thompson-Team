@@ -15,74 +15,31 @@ import java.util.Objects;
  *
  * @author Travis Harley
  */
-public class Locations implements Serializable {
-    
+public class Location implements Serializable {
+
     //attributes
-    private double row;
-    private double column;
-    private boolean visited; 
-    private Scene scene;
-    private ArrayList<Actor> actors;
-    
-     private static Map createMap(){
-        //create the map
-        Map map = new Map(20, 20);
-        
-        //create the scenes for the game
-        Scene[] scenes = createScenes();
-        
-        //assign scenes to location
-        GameController.assignScenesToLocations(map, scenes);
-        
-        return map;
-    }
-     
-    
-    
-     private static Scene[] createScenes(){
+    private int row;
+    private int column;
+    private boolean visited;
 
-        Scene[] scenes = new Scene[Scene.SceneType.values().length];
-
-        Scene startingScene = new Scene();
-        startingScene.setDescription("This is our description for the create scenes junk");
-        startingScene.setBlocked(false);
-        startingScene.setTravelTime(240);
-        scenes[Scene.SceneType.start.ordinal()] = startingScene;
-
-        Scene finishScene = new Scene();
-        finishScene.setDescription("Congratulations! another description");
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        scenes[Scene.SceneType.finish.ordinal()] = finishScene;
-
-        Scene campScene = new Scene();
-        campScene.setDescription("CampScene descriptions");
-        campScene.setMapSymbol(" BY ");
-        campScene.setBlocked(false);
-        campScene.setTravelTime(600);
-        scenes[Scene.SceneType.camp.ordinal()] = campScene;
-
-        return scenes;
-    }
-      
     // constructor
-    public Locations() {
+    public Location() {
     }
-    
+
     // getter setters
-    public double getRow() {
+    public int getRow() {
         return row;
     }
 
-    public void setRow(double row) {
+    public void setRow(int row) {
         this.row = row;
     }
 
-    public double getColumn() {
+    public int getColumn() {
         return column;
     }
 
-    public void setColumn(double column) {
+    public void setColumn(int column) {
         this.column = column;
     }
 
@@ -109,8 +66,7 @@ public class Locations implements Serializable {
     public String toString() {
         return "Locations{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
     }
-    
-    
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -119,7 +75,7 @@ public class Locations implements Serializable {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Locations other = (Locations) obj;
+        final Location other = (Location) obj;
         if (Double.doubleToLongBits(this.row) != Double.doubleToLongBits(other.row)) {
             return false;
         }
@@ -132,5 +88,5 @@ public class Locations implements Serializable {
     void setScene(Scene scene) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

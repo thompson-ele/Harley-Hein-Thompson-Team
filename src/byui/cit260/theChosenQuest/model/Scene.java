@@ -37,7 +37,7 @@ public class Scene implements Serializable{
     }
     
     private static void assignScenesToLocations(Map map, Scene[] scenes){
-        Locations[][] locations = map.getLocations();
+        Location[][] locations = map.getLocations();
         
         //start point
         locations[0][0].setScene(scenes[SceneType.desert.ordinal()]);

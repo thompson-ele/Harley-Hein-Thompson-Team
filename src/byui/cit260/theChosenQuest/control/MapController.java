@@ -7,6 +7,7 @@ package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Map;
+import byui.cit260.theChosenQuest.model.Scene;
 
 /**
  *
@@ -14,36 +15,58 @@ import byui.cit260.theChosenQuest.model.Map;
  */
 public class MapController {
 
-    static void moveActorsToStartingLocation(Map map) {
-        // Need to add method here
-        System.out.println("Stub Function: moveActorsToStartingLocation() called");
-    }
-
-    
-    public int calcMapBorders(int mapWidth, int mapHeight){
+    public int calcMapBorders(int mapWidth, int mapHeight) {
 
         // set variables
         int area = mapWidth * mapHeight;
 
-        if(mapHeight <= -1 || mapWidth <= -1){
+        if (mapHeight <= -1 || mapWidth <= -1) {
             //display error
             System.out.println("There was an error, please try again");
-            return -1; 
+            return -1;
         }
-             
-    return area;
-        
+
+        return area;
+
     }
-   
-    // The map should have a throw exception, but not sure what the exception should be just yet...
-    public static Map createMap() throws MapControlException {
-        
+
+    public static Map createMap() {
         //create the map
-        Map map = null;
-        
-        System.out.println("\n*** createMAP() called ***");
-        
+        Map map = new Map(6, 6);
+
+        //create the scenes for the game
+        Scene[] scenes = createScenes();
+
+        //assign scenes to location
+        GameController.assignScenesToLocations(map, scenes);
+
         return map;
     }
-        
+
+    private static Scene[] createScenes() {
+
+        Scene[] scenes = new Scene[Scene.SceneType.values().length];
+
+        Scene startingScene = new Scene();
+        startingScene.setDescription("This is our description for the create scenes junk");
+        startingScene.setBlocked(false);
+        startingScene.setTravelTime(240);
+        scenes[Scene.SceneType.start.ordinal()] = startingScene;
+
+        Scene finishScene = new Scene();
+        finishScene.setDescription("Congratulations! another description");
+        finishScene.setBlocked(false);
+        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
+        scenes[Scene.SceneType.finish.ordinal()] = finishScene;
+
+        Scene campScene = new Scene();
+        campScene.setDescription("CampScene descriptions");
+        campScene.setMapSymbol(" BY ");
+        campScene.setBlocked(false);
+        campScene.setTravelTime(600);
+        scenes[Scene.SceneType.camp.ordinal()] = campScene;
+
+        return scenes;
+    }
+
 }
