@@ -7,6 +7,7 @@ package byui.cit260.theChosenQuest.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -65,10 +66,17 @@ public class Map implements Serializable {
         
         String rtn = "";
         
+        
         for (int row = 0; row < rowCount; row++) {
             rtn += "\n";
             for (int column = 0; column < columnCount; column++) {
-                rtn += locations[row][column].getVisited() ? "V\t" : "X\t" ;
+                // Check if it's the player's current location
+                if(locations[row][column] == TheChosenQuest.getPlayer().getLocation()) {
+                    rtn += "O\t";
+                } else {
+                    // If it's not the player's current location, output an O or a V if it's a visited location
+                    rtn += locations[row][column].getVisited() ? "V\t" : "X\t" ;
+                }
             }
         }
      

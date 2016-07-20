@@ -8,6 +8,8 @@ package byui.cit260.theChosenQuest.control;
 import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Scene;
+import byui.cit260.theChosenQuest.view.MapView;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -67,6 +69,14 @@ public class MapController {
         scenes[Scene.SceneType.camp.ordinal()] = campScene;
 
         return scenes;
+    }
+    
+    public void displayMap() {
+        // display the map
+        System.out.println(TheChosenQuest.getCurrentGame().getMap().getMapString());
+        
+        MapView mapView = new MapView();
+        mapView.display();
     }
 
 }

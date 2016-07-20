@@ -5,6 +5,7 @@
  */
 package byui.cit260.theChosenQuest.view;
 
+import byui.cit260.theChosenQuest.control.MapController;
 import java.util.Scanner;
 import thechosenquest.TheChosenQuest;
 
@@ -31,11 +32,12 @@ public class GameMenuView extends View {
 
     public boolean doAction(String choice){
     
+        MapController map = new MapController();
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch(choice){
             case "M": // create a new game
-                this.displayMap();
+                map.displayMap();
                 break;
             case "I": // load the game
                 this.inventoryMenu();
@@ -61,14 +63,6 @@ public class GameMenuView extends View {
         }
         
         return false;
-    }
-    
-    private void displayMap() {
-        // display the map
-        System.out.println(TheChosenQuest.getCurrentGame().getMap().getMapString());
-        
-        MapView mapView = new MapView();
-        mapView.display();
     }
 
     private void inventoryMenu() {

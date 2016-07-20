@@ -5,6 +5,7 @@
  */
 package byui.cit260.theChosenQuest.view;
 
+import byui.cit260.theChosenQuest.control.MapController;
 import byui.cit260.theChosenQuest.control.MovementController;
 import java.util.Scanner;
 import thechosenquest.TheChosenQuest;
@@ -31,6 +32,7 @@ public class MapView extends View{
     public boolean doAction(String choice){
     
         choice = choice.toUpperCase(); // convert choice to upper case
+        
         
         switch(choice){
             case "N": // create a new game
@@ -59,21 +61,33 @@ public class MapView extends View{
     private void moveNorth() {
         MovementController mc = new MovementController();
         mc.moveNorth(TheChosenQuest.getCurrentGame());
+        // Display Map again
+        MapController map = new MapController();
+        map.displayMap();
     }
     
     private void moveEast() {
         MovementController mc = new MovementController();
         mc.moveEast(TheChosenQuest.getCurrentGame());
+        // Display Map again
+        MapController map = new MapController();
+        map.displayMap();
     }
     
     private void moveSouth() {
         MovementController mc = new MovementController();
         mc.moveSouth(TheChosenQuest.getCurrentGame());
+        // Display Map again
+        MapController map = new MapController();
+        map.displayMap();
     }
     
     private void moveWest() {
         MovementController mc = new MovementController();
         mc.moveWest(TheChosenQuest.getCurrentGame());
+        // Display Map again
+        MapController map = new MapController();
+        map.displayMap();
     }
 
     private void exitMap() {
