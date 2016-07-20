@@ -25,7 +25,7 @@ public class MapView extends View{
             + "\nE - East"
             + "\nS - South"
             + "\nW - West"
-            + "\nQ - Quit"
+            + "\nB - Back to Main Menu"
             + "\n-----------------------------------");
     }
        
@@ -47,7 +47,7 @@ public class MapView extends View{
             case "W": // load the game
                 this.moveWest();
                 break;
-            case "Q": // quit it 
+            case "B": // Back to  main menu 
                 this.exitMap();
                 break;
             default:
@@ -91,7 +91,8 @@ public class MapView extends View{
     }
 
     private void exitMap() {
-        System.out.println("\nExit map");
+        GameMenuView mainMenu = new GameMenuView();
+        mainMenu.display();
     }
     
     
