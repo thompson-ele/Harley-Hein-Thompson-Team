@@ -51,7 +51,10 @@ public class GameController {
         Map map = MapController.createMap(); // create and initialize new map
         game.setMap(map);
         
+              
         player.setLocation(map.getLocation(0, 0));
+        
+        MapController.assignItemsToLocations();
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
@@ -81,7 +84,7 @@ public class GameController {
     public static Item[] createItemList(){
         
         // created array(list) of inventory item
-        Item[] inventory = new Item[14];
+        Item[] inventory = new Item[4];
         
         // Descriptions and stats of weapons and armor go here
         Weapon sword1 = new Weapon();

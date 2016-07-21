@@ -7,9 +7,11 @@ package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Item;
+import byui.cit260.theChosenQuest.model.Location;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Scene;
 import byui.cit260.theChosenQuest.view.MapView;
+import java.util.Random;
 import thechosenquest.TheChosenQuest;
 
 /**
@@ -37,54 +39,27 @@ public class MapController {
         //create the map
         Map map = new Map(6, 6);
 
-        //create the scenes for the game
-        Scene[] scenes = createScenes();
-
-        //assign scenes to location
-        GameController.assignScenesToLocations(map, scenes);
-
         return map;
     }
 
-    public void assignItemsToLocations() {
+    public static void assignItemsToLocations() {
         Map map = TheChosenQuest.getCurrentGame().getMap();
-        Item[] inventory = TheChosenQuest.getCurrentGame().getInventory();
+        Item[] inventory = TheChosenQuest.getCurrentGame().getInventory();              
+  
+        Location location1 = map.getLocation(1, 1);
+        location1.setItem(inventory[0]);       
         
-        // Loop through each item in the Item array
-        for(int i = 0; i < inventory.length; i++) {
-            // If the spot in the array isn't empty
-            if(inventory[i] != null) {
-                // Assign the item to a random location
-            }
-        }
-    }
-    
-    private static Scene[] createScenes() {
-
-        Scene[] scenes = new Scene[Scene.SceneType.values().length];
-
-        Scene startingScene = new Scene();
-        startingScene.setDescription("This is our description for the create scenes junk");
-        startingScene.setBlocked(false);
-        startingScene.setTravelTime(240);
-        scenes[Scene.SceneType.start.ordinal()] = startingScene;
-
-        Scene finishScene = new Scene();
-        finishScene.setDescription("Congratulations! another description");
-        finishScene.setBlocked(false);
-        finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        scenes[Scene.SceneType.finish.ordinal()] = finishScene;
-
-        Scene campScene = new Scene();
-        campScene.setDescription("CampScene descriptions");
-        campScene.setMapSymbol(" BY ");
-        campScene.setBlocked(false);
-        campScene.setTravelTime(600);
-        scenes[Scene.SceneType.camp.ordinal()] = campScene;
-
-        return scenes;
-    }
-    
+        Location location2 = map.getLocation(2, 2);
+        location2.setItem(inventory[1]);       
+        
+        Location location3 = map.getLocation(3, 3);
+        location3.setItem(inventory[2]);       
+        
+        Location location4 = map.getLocation(4, 4);
+        location4.setItem(inventory[3]);       
+        
+    }    
+ 
     public void displayMap() {
         // display the map
         System.out.println(TheChosenQuest.getCurrentGame().getMap().getMapString());
