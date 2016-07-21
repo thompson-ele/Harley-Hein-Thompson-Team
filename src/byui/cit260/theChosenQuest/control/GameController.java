@@ -5,15 +5,21 @@
  */
 package byui.cit260.theChosenQuest.control;
 
+import byui.cit260.theChosenQuest.exception.GameControllerException;
 import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Armor;
-import byui.cit260.theChosenQuest.model.Creature;
 import byui.cit260.theChosenQuest.model.Game;
+import byui.cit260.theChosenQuest.model.Inventory;
 import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Player;
+import byui.cit260.theChosenQuest.model.Scene;
 import byui.cit260.theChosenQuest.model.Weapon;
-import byui.cit260.theChosenQuest.model.Character;
+import byui.cit260.theChosenQuest.view.GameMenuView;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import thechosenquest.TheChosenQuest;
 
 /**
@@ -36,6 +42,8 @@ public class GameController {
         return player;
         
     }
+    
+    private String filepath = "output.txt";
 
     public static void createNewGame(Player player) throws MapControlException {
         
@@ -47,17 +55,14 @@ public class GameController {
         Item[] itemList = GameController.createItemList();
         game.setInventory(itemList);
         
-        Character[] creatureList = GameController.createCreatures();
-        game.setCreatures(creatureList);
-        
         Map map = MapController.createMap(); // create and initialize new map
         game.setMap(map);
         
-              
         player.setLocation(map.getLocation(0, 0));
-        
-        MapController.assignItemsToLocations();
-        MapController.assignCreaturesToLocations();
+    }
+
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
+        System.out.println("Stub function: GameController class, assignScenesToLocations() called");
     }
     
     public int createGame(int numberOfGames){
@@ -83,7 +88,7 @@ public class GameController {
     public static Item[] createItemList(){
         
         // created array(list) of inventory item
-        Item[] inventory = new Item[4];
+        Item[] inventory = new Item[14];
         
         // Descriptions and stats of weapons and armor go here
         Weapon sword1 = new Weapon();
@@ -119,35 +124,33 @@ public class GameController {
         
     }
     
-    public static Character[] createCreatures() {
-        
-        Character[] creatures = new Character[4];
-        
-        Creature creature1 = new Creature();
-        creature1.setCreatureName("Ogre");
-        creature1.setIntroductionText("Oh no! A giant ogre jumped out from the bushes!");
-        creature1.setStrength(3);
-        creature1.setHitpoints(5);
-        
-        Creature creature2 = new Creature();
-        creature2.setCreatureName("Golem");
-        creature2.setIntroductionText("A golem is lurking in the bushes. Don\'t touch his precious!");
-        creature2.setStrength(2);
-        creature2.setHitpoints(5);
-        
-        Creature creature3 = new Creature();
-        creature3.setCreatureName("Giant");
-        creature3.setIntroductionText("You woke a giant from his slumber! Get ready to fight!");
-        creature3.setStrength(4);
-        creature3.setHitpoints(5);
-        
-        Creature creature4 = new Creature();
-        creature4.setCreatureName("Dragon");
-        creature4.setIntroductionText("You got too close to the dragon\'s gold! Watch out for it\'s fiery breath!");
-        creature4.setStrength(5);
-        creature4.setHitpoints(8);
-
-        return creatures; 
-    }
+    
+   public static void saveGame(Game game, String filepath)
+           throws GameControllerException {
    
+       try( FileOutputStream fops = new FileOutputStream(filepath)){
+       ObjectOutputStream output = new ObjectOutputStream(fops);
+       
+       output.writeObject(game); //write the game object out to file
+       }
+       catch(Exception e) {
+           throw new GameControllerException(e.getMessage());
+       }
+   }
+   
+   public static void getSavedGame(String filepath)
+            throws GameControllerException {
+        Game game = null;
+        
+        try( FileInputStream fips = new FileInputStream(filepath)) {
+                ObjectInputStream input = new ObjectInputStream(fips);
+                
+                game = (Game) input.readObject();//read the game object from the file
+   }
+   catch(Exception e) {
+            throw new GameControllerException(e.getMessage());
 }
+   //close the file
+   TheChosenQuest.setCurrentGame(game); //save in theChosenQuest
+
+   }
