@@ -18,6 +18,7 @@ public class Player implements Serializable {
     private String playerClass;
     private String race;
     private Location location;
+    private Item[] inventory;
     
     // constructor
     public Player() {
@@ -56,6 +57,15 @@ public class Player implements Serializable {
         this.location = location;
         location.setVisited(true);
     }
+
+    public Item[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Item[] inventory) {
+        this.inventory = inventory;
+    }
+    
     
     // equals and hashcode
     @Override

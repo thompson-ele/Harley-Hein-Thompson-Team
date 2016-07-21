@@ -16,8 +16,8 @@ import thechosenquest.TheChosenQuest;
 public class Map implements Serializable {
 
     // variables 
-    private double rowCount;
-    private double columnCount;
+    private int rowCount;
+    private int columnCount;
     private String locationsVisited;
     private Location[][] locations;
     private String description;
@@ -88,7 +88,7 @@ public class Map implements Serializable {
         return rowCount;
     }
 
-    public void setRowCount(double rowCount) {
+    public void setRowCount(int rowCount) {
         this.rowCount = rowCount;
     }
 
@@ -96,7 +96,7 @@ public class Map implements Serializable {
         return columnCount;
     }
 
-    public void setColumnCount(double columnCount) {
+    public void setColumnCount(int columnCount) {
         this.columnCount = columnCount;
     }
 

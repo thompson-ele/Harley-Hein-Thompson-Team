@@ -6,6 +6,7 @@
 package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.exception.MapControlException;
+import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Scene;
 import byui.cit260.theChosenQuest.view.MapView;
@@ -45,6 +46,19 @@ public class MapController {
         return map;
     }
 
+    public void assignItemsToLocations() {
+        Map map = TheChosenQuest.getCurrentGame().getMap();
+        Item[] inventory = TheChosenQuest.getCurrentGame().getInventory();
+        
+        // Loop through each item in the Item array
+        for(int i = 0; i < inventory.length; i++) {
+            // If the spot in the array isn't empty
+            if(inventory[i] != null) {
+                // Assign the item to a random location
+            }
+        }
+    }
+    
     private static Scene[] createScenes() {
 
         Scene[] scenes = new Scene[Scene.SceneType.values().length];

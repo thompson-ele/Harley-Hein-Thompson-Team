@@ -6,12 +6,14 @@
 package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.exception.MapControlException;
+import byui.cit260.theChosenQuest.model.Armor;
 import byui.cit260.theChosenQuest.model.Game;
 import byui.cit260.theChosenQuest.model.Inventory;
 import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Player;
 import byui.cit260.theChosenQuest.model.Scene;
+import byui.cit260.theChosenQuest.model.Weapon;
 import byui.cit260.theChosenQuest.view.GameMenuView;
 import thechosenquest.TheChosenQuest;
 
@@ -43,8 +45,8 @@ public class GameController {
         
         game.setPlayer(player); //save player in game
         
-        Inventory[] inventoryList = GameController.createInventoryList();
-        game.setInventory(inventoryList);
+        Item[] itemList = GameController.createItemList();
+        game.setInventory(itemList);
         
         Map map = MapController.createMap(); // create and initialize new map
         game.setMap(map);
@@ -76,22 +78,40 @@ public class GameController {
         return gameFile;
     }
     
-    public static Inventory[] createInventoryList(){
+    public static Item[] createItemList(){
         
         // created array(list) of inventory item
-        Inventory[] inventory = new Inventory[14];
+        Item[] inventory = new Item[14];
         
-        Inventory weapons = new Inventory();
-        weapons.setDescription("Weapons");
-        weapons.setQuantityInStock(0);
-        weapons.setRequiredAmount(0);
-        //inventory[Item.weapons.ordinal()] = weapons;
+        // Descriptions and stats of weapons and armor go here
+        Weapon sword1 = new Weapon();
+        sword1.setItemName("Master Sword");
+        sword1.setDescription("A legendary sword from Hyrule");
+        sword1.setDexterityBonus(0);
+        sword1.setStrengthBonus(4);
+        inventory[0] = sword1;
         
-        Inventory gold = new Inventory();
-        gold.setDescription("Gold");
-        gold.setQuantityInStock(0);
-        gold.setRequiredAmount(0);
-        //inventory[Item.gold.ordinal()] = gold;
+        Weapon sword2 = new Weapon();
+        sword2.setItemName("Anduril");
+        sword2.setDescription("This sword was reforged from the \n"
+                              + "shards of Narsil" );
+        sword2.setDexterityBonus(1);
+        sword2.setStrengthBonus(3);
+        inventory[1] = sword2;
+        
+        Weapon bow = new Weapon();
+        bow.setItemName("Bow and Arrows");
+        bow.setDescription("These will help you attack from afar");
+        bow.setDexterityBonus(5);
+        bow.setStrengthBonus(2);
+        inventory[2] = bow;
+        
+        Armor helmet = new Armor();
+        helmet.setItemName("Helmet");
+        helmet.setDescription("This is a helmet. It will protect your head");
+        helmet.setDexterityBonus(1);
+        helmet.setBaseValue(3);
+        inventory[3] = helmet;
         
         return inventory;
         

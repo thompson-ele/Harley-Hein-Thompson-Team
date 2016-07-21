@@ -7,6 +7,7 @@ package byui.cit260.theChosenQuest.view;
 
 import byui.cit260.theChosenQuest.model.Game;
 import byui.cit260.theChosenQuest.model.Inventory;
+import byui.cit260.theChosenQuest.model.Item;
 import java.util.Scanner;
 import thechosenquest.TheChosenQuest;
 
@@ -31,9 +32,10 @@ class InventoryView extends View{
     
     
     private void viewInventory(){
+        // NEED TO CHANGE
         StringBuilder line;
         Game game = TheChosenQuest.getCurrentGame();
-        Inventory[] inventory = game.getInventory();
+        Item[] inventory = game.getInventory();
         
         System.out.println("\n    LIST OF INNVENTORY ITEMS");
         line = new StringBuilder("                  ");
@@ -43,11 +45,11 @@ class InventoryView extends View{
         System.out.println(line.toString());
         
         // for each inventory item
-        for (Inventory item : inventory) {
+        for (Item item : inventory) {
             line = new StringBuilder("               ");
             line.insert(0, item.getDescription());
-            line.insert(23, item.getRequiredAmount());
-            line.insert(33, item.getQuantityInStock());
+            //line.insert(23, item.getRequiredAmount());
+            //line.insert(33, item.getQuantityInStock());
             
             //DISPLAY the line
             System.out.println(line.toString());

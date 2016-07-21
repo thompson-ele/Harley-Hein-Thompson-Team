@@ -4,11 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.theChosenQuest.model;
-
-import byui.cit260.theChosenQuest.control.GameController;
-import byui.cit260.theChosenQuest.model.Scene;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -21,6 +17,7 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private boolean visited;
+    private Item item;
 
     // constructor
     public Location() {
@@ -49,6 +46,14 @@ public class Location implements Serializable {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
     }
     
     // equals and hashcode
