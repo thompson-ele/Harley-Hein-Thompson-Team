@@ -9,8 +9,8 @@ import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Location;
 import byui.cit260.theChosenQuest.model.Map;
-import byui.cit260.theChosenQuest.model.Scene;
 import byui.cit260.theChosenQuest.view.MapView;
+import byui.cit260.theChosenQuest.model.Character;
 import java.util.Random;
 import thechosenquest.TheChosenQuest;
 
@@ -19,6 +19,23 @@ import thechosenquest.TheChosenQuest;
  * @author tharley
  */
 public class MapController {
+
+    static void assignCreaturesToLocations() {
+        Map map = TheChosenQuest.getCurrentGame().getMap();
+        Character[] creatures = TheChosenQuest.getCurrentGame().getCreatures();              
+  
+        Location location1 = map.getLocation(2, 1);
+        location1.setCreature(creatures[0]);       
+        
+        Location location2 = map.getLocation(3, 2);
+        location2.setCreature(creatures[1]);       
+        
+        Location location3 = map.getLocation(4, 3);
+        location3.setCreature(creatures[2]);       
+        
+        Location location4 = map.getLocation(5, 4);
+        location4.setCreature(creatures[3]); 
+    }
 
     public int calcMapBorders(int mapWidth, int mapHeight) {
 

@@ -26,6 +26,7 @@ public class Game implements Serializable {
     private Player player;
     private Map map;
     private Item[] inventory;
+    private Character[] creatures;
 
     // getter setters
     public double getTotalTime() {
@@ -59,10 +60,13 @@ public class Game implements Serializable {
     public void setInventory(Item[] inventory) {
         this.inventory = inventory;
     }
-    
-    
-    
 
+    public Character[] getCreatures() {
+        return creatures;
+    }
 
+    public void setCreatures(Character[] creatures) {
+        this.creatures = creatures;
+    }
 
 }

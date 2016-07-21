@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author rileyhein
  */
-public class Creature implements Serializable{
+public class Creature extends Character implements Serializable{
     
     
     //class attributes

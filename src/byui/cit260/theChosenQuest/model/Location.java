@@ -18,6 +18,7 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private Item item;
+    private Character creature;
 
     // constructor
     public Location() {
@@ -54,6 +55,14 @@ public class Location implements Serializable {
 
     public void setItem(Item item) {
         this.item = item;
+    }
+
+    public Character getCreature() {
+        return creature;
+    }
+
+    public void setCreature(Character creature) {
+        this.creature = creature;
     }
     
     // equals and hashcode
