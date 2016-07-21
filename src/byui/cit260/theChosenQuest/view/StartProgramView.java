@@ -29,9 +29,14 @@ public class StartProgramView {
     public void displayBanner(){
         
         System.out.println(
+                " _____ _           ___ _                     _       ___              _" + "\n" +
+                "|_   _| |_  ___   / __| |_  ___ ___ ___ _ _ ( )___  / _ \\ _  _ ___ __| |_" + "\n" +
+                "  | | | ' \\/ -_) | (__| ' \\/ _ (_-</ -_) ' \\|/(_-< | (_) | || / -_|_-<  _|" + "\n" +
+                "  |_| |_||_\\___|  \\___|_||_\\___/__/\\___|_||_| /__/  \\__\\_\\\\_,_\\___/__/\\__|" + "\n" +
                 "\n"
-                +"\nWelcome to the game you turds. Don't die, or it's game over."
-                +"\nIn this game you will fight the biggest bosses in the world."
+                +"\nWelcome to The Chosen's Quest! As the chosen one you will need"
+                +"\nto rid this world of monster\'s. Defeat all of them to win the game!"
+                +"\nThere will also be items to help you on your quest."
         );
     }
 
@@ -99,6 +104,7 @@ public class StartProgramView {
                             + "\n-----------------------------------"
         );
         
+
         //create mainMenuView object
         MainMenuView mainMenuView = new MainMenuView();
         

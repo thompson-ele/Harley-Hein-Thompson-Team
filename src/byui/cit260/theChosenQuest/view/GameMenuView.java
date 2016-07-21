@@ -72,7 +72,8 @@ public class GameMenuView extends View {
     }
 
     private void displayCharacterSheet() {
-        System.out.println("\nDisplay charactersheet has been called");
+        CharacterSheetView characterSheet = new CharacterSheetView();
+        characterSheet.display();
     }
     
     private void helpMenu() {

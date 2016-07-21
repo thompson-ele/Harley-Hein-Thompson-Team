@@ -6,6 +6,7 @@
 package byui.cit260.theChosenQuest.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -22,7 +23,7 @@ public class Player implements Serializable {
     private String playerClass;
     private String race;
     private Location location;
-    private Item[] inventory;
+    private ArrayList<Item> backpack;
     
     // constructor
     public Player() {
@@ -94,14 +95,13 @@ public class Player implements Serializable {
         location.setVisited(true);
     }
 
-    public Item[] getInventory() {
-        return inventory;
+    public ArrayList<Item> getBackpack() {
+        return backpack;
     }
 
-    public void setInventory(Item[] inventory) {
-        this.inventory = inventory;
+    public void setBackpack(ArrayList<Item> backpack) {
+        this.backpack = backpack;
     }
-    
     
     // equals and hashcode
     @Override

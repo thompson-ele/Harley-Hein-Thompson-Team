@@ -7,6 +7,7 @@ package byui.cit260.theChosenQuest.view;
 
 import byui.cit260.theChosenQuest.control.MapController;
 import byui.cit260.theChosenQuest.control.MovementController;
+import byui.cit260.theChosenQuest.model.Item;
 import java.util.Scanner;
 import thechosenquest.TheChosenQuest;
 
@@ -62,16 +63,20 @@ public class MapView extends View{
         MovementController mc = new MovementController();
         mc.moveNorth(TheChosenQuest.getCurrentGame());
         // Display Map again
+        
         MapController map = new MapController();
         map.displayMap();
+        
     }
     
     private void moveEast() {
         MovementController mc = new MovementController();
         mc.moveEast(TheChosenQuest.getCurrentGame());
+
         // Display Map again
         MapController map = new MapController();
         map.displayMap();
+        
     }
     
     private void moveSouth() {

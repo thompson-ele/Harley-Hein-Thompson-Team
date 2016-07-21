@@ -67,23 +67,27 @@ public class MainMenuView extends View {
             Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+        // Go to player selection
+        CreatePlayerView createPlayerView = new CreatePlayerView();
+        createPlayerView.display();
+        
         //display the game menu
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.display();
+        //GameMenuView gameMenuView = new GameMenuView();
+        //gameMenuView.display();
         
     }
     
     private void saveGame() {
-    //prompt for and get the name of the file to save the game in
-    this.console.println("\n\nEnter the file pat for file where the game"
-                           + "is to be saved.");
-    String filePath = this.getInput();
+        //prompt for and get the name of the file to save the game in
+        System.out.println("\n\nEnter the file path for file where the game"
+                               + "is to be saved.");
+        String filePath = this.getInput();
     
-    try {
-        //save the game to the specified file
-        GameController.saveGame(TheChosenQuest.getCurrentGame(), filePath);
-    }catch (Exception ex) {
-        ErrorView.display("MainMenuView", ex.getMessage());
+        try {
+            //save the game to the specified file
+            GameController.saveGame(TheChosenQuest.getCurrentGame(), filePath);
+        }catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 
@@ -97,21 +101,26 @@ public class MainMenuView extends View {
 
     private void startSavedGame() {
     
-    //promt for and get name of the file to save the game in
-    this.console.println("\n\nEnter the file path for the file where the game " 
-            + "is to be saved.");
-    
-    String filePath = this.getInput();
-    
-        try {
-            //start a saved game
-            GameController.getSavedGame(filePath);
-        }catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
-            //display the game
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
+        //promt for and get name of the file to save the game in
+        System.out.println("\n\nEnter the file path for the file where the game " 
+                + "is to be saved.");
+
+        String filePath = this.getInput();
+
+            try {
+                //start a saved game
+                GameController.getSavedGame(filePath);
+            }catch (Exception ex) {
+                ErrorView.display("MainMenuView", ex.getMessage());
+            }
+                //display the game
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
+    }
+
+    private void startExistingGame() {
+        // NEED TO ADD FUNCTION HERE
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

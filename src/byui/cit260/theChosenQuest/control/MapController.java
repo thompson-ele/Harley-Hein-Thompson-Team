@@ -20,23 +20,6 @@ import thechosenquest.TheChosenQuest;
  */
 public class MapController {
 
-    static void assignCreaturesToLocations() {
-        Map map = TheChosenQuest.getCurrentGame().getMap();
-        Character[] creatures = TheChosenQuest.getCurrentGame().getCreatures();              
-  
-        Location location1 = map.getLocation(2, 1);
-        location1.setCreature(creatures[0]);       
-        
-        Location location2 = map.getLocation(3, 2);
-        location2.setCreature(creatures[1]);       
-        
-        Location location3 = map.getLocation(4, 3);
-        location3.setCreature(creatures[2]);       
-        
-        Location location4 = map.getLocation(5, 4);
-        location4.setCreature(creatures[3]); 
-    }
-
     public int calcMapBorders(int mapWidth, int mapHeight) {
 
         // set variables
@@ -55,7 +38,7 @@ public class MapController {
     public static Map createMap() {
         //create the map
         Map map = new Map(6, 6);
-
+        
         return map;
     }
 
@@ -77,6 +60,23 @@ public class MapController {
         
     }    
  
+    static void assignCreaturesToLocations() {
+        Map map = TheChosenQuest.getCurrentGame().getMap();
+        Character[] creatures = TheChosenQuest.getCurrentGame().getCreatures();              
+  
+        Location location5 = map.getLocation(2, 1);
+        location5.setCreature(creatures[0]);       
+        
+        Location location6 = map.getLocation(3, 2);
+        location6.setCreature(creatures[1]);       
+        
+        Location location7 = map.getLocation(4, 3);
+        location7.setCreature(creatures[2]);       
+        
+        Location location8 = map.getLocation(5, 4);
+        location8.setCreature(creatures[3]); 
+    }
+    
     public void displayMap() {
         // display the map
         System.out.println(TheChosenQuest.getCurrentGame().getMap().getMapString());

@@ -6,16 +6,42 @@
 package byui.cit260.theChosenQuest.control;
 
 import byui.cit260.theChosenQuest.model.Game;
+import byui.cit260.theChosenQuest.model.Item;
 import byui.cit260.theChosenQuest.model.Location;
 import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Player;
+import byui.cit260.theChosenQuest.model.Character;
+import byui.cit260.theChosenQuest.model.Creature;
+import java.util.ArrayList;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
  * @author Daniel
  */
 public class MovementController {
-
+    
+    public void checkForItem(Location location) {
+        // Check if Item exists
+        if(location.getItem() != null) {
+            // Print out a message
+            System.out.println("You found a " + location.getItem().getItemName() + "!"
+                               + "\nDescription: " + location.getItem().getDescription());
+            // Add item to the Player's backpack
+            // Remove item from the location
+        }
+    }
+    
+    public void checkForCreature(Location location) { // Will probably need to change return type to Character...
+        // Check if Item exists
+        if(location.getCreature() != null) {
+            // Print out a message
+            System.out.println("Oh no! A " + location.getCreature().getName() + " is attacking you!");
+            // Remove creature from location
+            // Go to FightView
+        }
+    }
+    
     public boolean moveNorth(Game game) {
 
         Player player = game.getPlayer();
@@ -32,6 +58,10 @@ public class MovementController {
 
         Location newLocation = map.getLocation(newRow, currentCol);
         player.setLocation(newLocation);
+        
+        // Check for Items and Creatures
+        this.checkForItem(player.getLocation());
+        this.checkForCreature(player.getLocation());
 
         return true;
     }
@@ -47,6 +77,10 @@ public class MovementController {
         }
 
         player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getColumn() + 1));
+        
+        // Check for Items and Creatures
+        this.checkForItem(player.getLocation());
+        this.checkForCreature(player.getLocation());
 
         return true;
     }
@@ -62,6 +96,10 @@ public class MovementController {
         }
 
         player.setLocation(map.getLocation(currentLocation.getRow() + 1, currentLocation.getColumn()));
+        
+        // Check for Items and Creatures
+        this.checkForItem(player.getLocation());
+        this.checkForCreature(player.getLocation());
 
         return true;
     }
@@ -77,6 +115,10 @@ public class MovementController {
         }
 
         player.setLocation(map.getLocation(currentLocation.getRow(), currentLocation.getColumn() - 1));
+        
+        // Check for Items and Creatures
+        this.checkForItem(player.getLocation());
+        this.checkForCreature(player.getLocation());
 
         return true;
     }

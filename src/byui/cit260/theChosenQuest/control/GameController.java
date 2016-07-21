@@ -5,9 +5,12 @@
  */
 package byui.cit260.theChosenQuest.control;
 
+import byui.cit260.theChosenQuest.control.MapController;
 import byui.cit260.theChosenQuest.exception.GameControllerException;
 import byui.cit260.theChosenQuest.exception.MapControlException;
 import byui.cit260.theChosenQuest.model.Armor;
+import byui.cit260.theChosenQuest.model.Creature;
+import byui.cit260.theChosenQuest.model.Character;
 import byui.cit260.theChosenQuest.model.Game;
 import byui.cit260.theChosenQuest.model.Inventory;
 import byui.cit260.theChosenQuest.model.Item;
@@ -52,11 +55,20 @@ public class GameController {
         
         game.setPlayer(player); //save player in game
         
+        // Create list of items
         Item[] itemList = GameController.createItemList();
         game.setInventory(itemList);
         
+        // Create creatures
+        Character[] creatureList = GameController.createCreatures();
+        game.setCreatures(creatureList);
+        
         Map map = MapController.createMap(); // create and initialize new map
         game.setMap(map);
+        
+        // Assign creatures and items to the map
+        MapController.assignItemsToLocations();
+        MapController.assignCreaturesToLocations();
         
         player.setLocation(map.getLocation(0, 0));
     }
@@ -88,7 +100,7 @@ public class GameController {
     public static Item[] createItemList(){
         
         // created array(list) of inventory item
-        Item[] inventory = new Item[14];
+        Item[] inventory = new Item[4];
         
         // Descriptions and stats of weapons and armor go here
         Weapon sword1 = new Weapon();
@@ -124,6 +136,41 @@ public class GameController {
         
     }
     
+    public static Character[] createCreatures() {
+        
+        Character[] creatures = new Character[4];
+        
+        Creature creature1 = new Creature();
+        creature1.setName("Ogre");
+        creature1.setIntroductionText("Oh no! A giant ogre jumped out from the bushes!");
+        creature1.setStrength(3);
+        creature1.setHitpoints(5);
+        creatures[0] = creature1;
+        
+        Creature creature2 = new Creature();
+        creature2.setName("Golem");
+        creature2.setIntroductionText("A golem is lurking in the bushes. Don\'t touch his precious!");
+        creature2.setStrength(2);
+        creature2.setHitpoints(5);
+        creatures[1] = creature2;
+        
+        Creature creature3 = new Creature();
+        creature3.setName("Giant");
+        creature3.setIntroductionText("You woke a giant from his slumber! Get ready to fight!");
+        creature3.setStrength(4);
+        creature3.setHitpoints(5);
+        creatures[2] = creature3;
+        
+        Creature creature4 = new Creature();
+        creature4.setName("Dragon");
+        creature4.setIntroductionText("You got too close to the dragon\'s gold! Watch out for it\'s fiery breath!");
+        creature4.setStrength(5);
+        creature4.setHitpoints(8);
+        creatures[3] = creature4;
+
+        return creatures; 
+    }
+    
     
    public static void saveGame(Game game, String filepath)
            throws GameControllerException {
@@ -146,11 +193,10 @@ public class GameController {
                 ObjectInputStream input = new ObjectInputStream(fips);
                 
                 game = (Game) input.readObject();//read the game object from the file
-   }
-   catch(Exception e) {
+        } catch(Exception e) {
             throw new GameControllerException(e.getMessage());
+        }
+        //close the file
+        TheChosenQuest.setCurrentGame(game); //save in theChosenQuest
+    }
 }
-   //close the file
-   TheChosenQuest.setCurrentGame(game); //save in theChosenQuest
-
-   }
