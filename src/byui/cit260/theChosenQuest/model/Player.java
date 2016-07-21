@@ -15,6 +15,10 @@ import java.util.Objects;
 public class Player implements Serializable {
     
     private String name;
+    private double strength;
+    private double hitpoints;
+    private String equippedArmor;
+    private String equippedWeapons;
     private String playerClass;
     private String race;
     private Location location;
@@ -31,6 +35,38 @@ public class Player implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public double getStrength() {
+        return strength;
+    }
+
+    public void setStrength(double strength) {
+        this.strength = strength;
+    }
+
+    public double getHitpoints() {
+        return hitpoints;
+    }
+
+    public void setHitpoints(double hitpoints) {
+        this.hitpoints = hitpoints;
+    }
+
+    public String getEquippedArmor() {
+        return equippedArmor;
+    }
+
+    public void setEquippedArmor(String equippedArmor) {
+        this.equippedArmor = equippedArmor;
+    }
+
+    public String getEquippedWeapons() {
+        return equippedWeapons;
+    }
+
+    public void setEquippedWeapons(String equippedWeapons) {
+        this.equippedWeapons = equippedWeapons;
     }
 
     public String getPlayerClass() {
@@ -104,6 +140,6 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
-    
+
+
 }

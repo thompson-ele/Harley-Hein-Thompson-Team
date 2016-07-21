@@ -56,22 +56,23 @@ public class CreatureControl {
     public int getHP (int constitutionValue, int getDefense){
     
         //Variables
-    int getHP =constitutionValue - getDefense;
-    
-    if(getHP < 0){
-    
-        System.out.println("You Died!");
-        return -1;
-    }
+        int getHP = constitutionValue - getDefense;
+
+        if(getHP < 0){
+
+            System.out.println("You Died!");
+            return -1;
+        }
+
+
+        if(getHP >= 1){
+
+            System.out.println("getHP");
+            return getHP;
+        }
         
-        
-    if(getHP >= 1){
-    
-        System.out.println("getHP");
         return getHP;
     }
-        return getHP;
-}
     
 }
 
