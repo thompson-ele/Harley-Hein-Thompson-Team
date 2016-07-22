@@ -72,10 +72,10 @@ public class Map implements Serializable {
                 // Check if it's the player's current location                
                 if(locations[row][column] == TheChosenQuest.getPlayer().getLocation()) {
                     rtn += "O\t";
-                } else if(locations[row][column].getItem() != null) {
-                    rtn += "I\t";
-                } else if(locations[row][column].getCreature() != null) {
-                    rtn += "C\t";
+//                } else if(locations[row][column].getItem() != null) {
+//                    rtn += "I\t";
+//                } else if(locations[row][column].getCreature() != null) {
+//                    rtn += "C\t";
                 } else{
                      // If it's not the player's current location, output an O or a V if it's a visited location
                     rtn += locations[row][column].getVisited() ? "V\t" : "X\t" ;
