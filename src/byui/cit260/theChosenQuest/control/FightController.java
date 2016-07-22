@@ -17,7 +17,7 @@ import java.util.Random;
  */
 public class FightController {
             
-    public int rollDice(int sides) {
+    public static int rollDice(int sides) {
         int roll;
         Random rand = new Random();
         
@@ -26,8 +26,8 @@ public class FightController {
     }
           
     public static void createFight(Character creature, Player player){
-              
-        while(creature.getHitpoints() > 0 || player.getHitpoints() > 0){
+           
+        while(creature.getHitpoints() > 0 && player.getHitpoints() > 0){
             
             // create getHitPoints
             int creatureAttack = 0;
@@ -36,24 +36,31 @@ public class FightController {
             int playerStrength = (int) player.getStrength();
                     
             // creature total attack
-            creatureAttack = creatureStrength + 5;
-            playerAttack = playerStrength + 5;
-                      
+            creatureAttack = creatureStrength + rollDice(6);
+            playerAttack = playerStrength + rollDice(6);
+            
             // compare who is higher
             if(creatureAttack > playerAttack){
                 int playerHitpoints = (int) (player.getHitpoints() - creatureAttack);
                 player.setHitpoints(playerHitpoints);
                 System.out.println("Player was hit " + creatureAttack);
-            }else{
+                System.out.println("Your HP is " + (int) player.getHitpoints());
+            } else {
                 int creatureHitpoints = (int) (creature.getHitpoints() - playerAttack);
                 creature.setHitpoints(creatureHitpoints);
-                System.out.println("Creature was hit " + playerAttack);
+                System.out.println(creature.getName() + " was hit " + playerAttack);
+                System.out.println(creature.getName() + "'s HP is " + (int) creature.getHitpoints());
             }   
         }
         // if hit < 0 declare winner
-        if(creature.getHitpoints() == 0){
-            System.out.println("You won!");
-        }else{
+        if(creature.getHitpoints() <= 0){
+            System.out.print(
+                      "__  __               _       __            __\n"
+                    + "\\ \\/ /___  __  __   | |     / /___  ____  / /\n" 
+                    + " \\  / __ \\/ / / /   | | /| / / __ \\/ __ \\/ / \n" 
+                    + " / / /_/ / /_/ /    | |/ |/ / /_/ / / / /_/  \n" 
+                    + "/_/\\____/\\__,_/     |__/|__/\\____/_/ /_(_)   ");
+        } else {
             System.out.println("The Creature beat you!");
         }
     }
