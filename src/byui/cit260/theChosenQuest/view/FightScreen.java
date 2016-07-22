@@ -5,7 +5,12 @@
  */
 package byui.cit260.theChosenQuest.view;
 
+import byui.cit260.theChosenQuest.control.FightController;
+import byui.cit260.theChosenQuest.model.Location;
+import byui.cit260.theChosenQuest.model.Player;
+import byui.cit260.theChosenQuest.model.Character;
 import java.util.Scanner;
+import thechosenquest.TheChosenQuest;
 
 /**
  *
@@ -26,16 +31,21 @@ public class FightScreen extends View {
      
     public boolean doAction(String choice){
     
+        Player player = TheChosenQuest.getPlayer();
+        Location playerLocation = player.getLocation();
+        Character creature = playerLocation.getCreature();
+        FightController fight = new FightController();
+        
         choice = choice.toUpperCase(); // convert choice to upper case
         
         switch(choice){
-            case "A": // create a new game
-                this.attack();
+            case "A": // attack
+                fight.createFight(creature, player);
                 break;
-            case "D": // load the game
+            case "D": // defend
                 this.defend();
                 break;
-            case "R": // load the game
+            case "R": // run
                 this.runFight();
                 break;
             default:
@@ -48,6 +58,8 @@ public class FightScreen extends View {
 
     private void attack() {
         System.out.println("\nCalling attack function");
+        
+       
     }
 
     private void defend() {
@@ -55,8 +67,18 @@ public class FightScreen extends View {
     }
 
     private void runFight() {
-        System.out.println("\nCalling run function");
+        System.out.println("\nYou got away safely!");
+        GameMenuView mainMenu = new GameMenuView();
+        mainMenu.display();
     }
-    
+
+    private void getCreature() {
+        
+    }
+
+    private void getPlayer() {
+        
+    }
+   
     
 }

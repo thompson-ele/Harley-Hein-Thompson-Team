@@ -12,6 +12,7 @@ import byui.cit260.theChosenQuest.model.Map;
 import byui.cit260.theChosenQuest.model.Player;
 import byui.cit260.theChosenQuest.model.Character;
 import byui.cit260.theChosenQuest.model.Creature;
+import byui.cit260.theChosenQuest.view.FightScreen;
 import java.util.ArrayList;
 import thechosenquest.TheChosenQuest;
 
@@ -38,7 +39,10 @@ public class MovementController {
             // Print out a message
             System.out.println("Oh no! A " + location.getCreature().getName() + " is attacking you!");
             // Remove creature from location
+            
             // Go to FightView
+            FightScreen fightScreen = new FightScreen();
+            fightScreen.display();
         }
     }
     
